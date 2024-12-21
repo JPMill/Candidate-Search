@@ -10,7 +10,7 @@ const Nav = () => {
           </Link>
         </li>
         <li>
-          <Link to="/saved-candidates" style={styles.link}>
+          <Link to="/SavedCandidates" style={styles.link}>
             Potential Candidates
           </Link>
         </li>
