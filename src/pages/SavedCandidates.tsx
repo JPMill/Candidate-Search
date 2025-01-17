@@ -23,38 +23,45 @@ const SavedCandidates: React.FC = () => {
   return (
     <div className="candidates-container">
       <h1 className="title">Potential Candidates</h1>
-      <ul className="candidate-list">
-        {candidates.map(candidate => (
-          <li key={candidate.login} className="candidate-item">
-            <img 
-              src={candidate.avatar_url} 
-              alt={`${candidate.name}'s avatar`} 
-              className="candidate-avatar" 
-            />
-            <div className="candidate-info">
-              <h2 className="candidate-name">{candidate.name || "No Name"}</h2>
-              <p className="candidate-detail">Username: {candidate.login}</p>
-              <p className="candidate-detail">Location: {candidate.location || "N/A"}</p>
-              <p className="candidate-detail">Email: {candidate.email || "N/A"}</p>
-              <p className="candidate-detail">Company: {candidate.company || "N/A"}</p>
-              <a 
-                href={candidate.html_url} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="candidate-link"
-              >
-                GitHub Profile
-              </a>
-            </div>
-            <button 
-              onClick={() => removeCandidate(candidate.login)} 
-              className="remove-button"
-            >
-              -
-            </button>
-          </li>
-        ))}
-      </ul>
+      <table className="candidate-table">
+        <thead>
+          <tr className="table-header">
+            <th>Avatar</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Location</th>
+            <th>Email</th>
+            <th>Company</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {candidates.map(candidate => (
+            <tr key={candidate.login} className="candidate-item">
+              <td>
+                <img
+                  src={candidate.avatar_url}
+                  alt={`${candidate.name}'s avatar`}
+                  className="candidate-avatar"
+                />
+              </td>
+              <td className="candidate-name">{candidate.name || "No Name"}</td>
+              <td className="candidate-detail">{candidate.login}</td>
+              <td className="candidate-detail">{candidate.location || "N/A"}</td>
+              <td className="candidate-detail">{candidate.email || "N/A"}</td>
+              <td className="candidate-detail">{candidate.company || "N/A"}</td>
+              <td>
+                <button
+                  onClick={() => removeCandidate(candidate.login)}
+                  className="remove-button"
+                >
+                  -
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

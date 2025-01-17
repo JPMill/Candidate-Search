@@ -4,7 +4,6 @@
     color: #ffffff;
   }
   
-  /* Candidate list container */
   .candidates-container {
     width: 100%;
     max-width: 800px;
@@ -17,7 +16,6 @@
     margin: 0;
   }
   
-  /* Candidate list item */
   .candidate-item {
     background-color: white;
     border-radius: 8px;
@@ -70,7 +68,6 @@
     text-decoration: underline;
   }
   
-  /* Remove button */
   .remove-button {
     background-color: #ff4d4d;
     color: white;
@@ -91,7 +88,6 @@
     cursor: not-allowed;
   }
   
-  /* No candidates available */
   .no-candidates {
     font-size: 1.2rem;
     color: #ff6b6b;
