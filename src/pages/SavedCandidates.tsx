@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import * as React from "react";  // Use 'import * as React' instead of default import
+import { useState, useEffect } from "react";
 import { Candidate } from "../interfaces/Candidate.interface";
 
 
