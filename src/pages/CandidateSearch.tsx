@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Candidate } from "../interfaces/Candidate.interface";
 import { searchGithub, searchGithubUser } from '../api/API';
+import './CandidateSearch.css';
 
 const CandidateSearch = () => {
   const [candidate, setCandidate] = useState<Candidate | null>(null);
@@ -46,25 +47,25 @@ const CandidateSearch = () => {
     fetchCandidate();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
-  if (!candidate) return <p>No more candidates available.</p>;
+  if (loading) return <p className="loading-message">Loading...</p>;
+  if (error) return <p className="error-message">{error}</p>;
+  if (!candidate) return <p className="no-candidates-message">No more candidates available.</p>;
 
   return (
-    <div>
-      <h1>Candidate Search</h1>
-      <img src={candidate.avatar_url} alt={`${candidate.name}'s avatar`} width={100} />
-      <h2>{candidate.name}</h2>
-      <p>Username: {candidate.login}</p>
-      <p>Location: {candidate.location || "N/A"}</p>
-      <p>Email: {candidate.email || "N/A"}</p>
-      <p>Company: {candidate.company || "N/A"}</p>
-      <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">
+    <div className="candidate-card">
+      <h1 className="candidate-title">Candidate Search</h1>
+      <img src={candidate.avatar_url} alt={`${candidate.name}'s avatar`} className="candidate-avatar" />
+      <h2 className="candidate-name">{candidate.name || "No Name"}</h2>
+      <p className="candidate-info">Username: {candidate.login}</p>
+      <p className="candidate-info">Location: {candidate.location || "N/A"}</p>
+      <p className="candidate-info">Email: {candidate.email || "N/A"}</p>
+      <p className="candidate-info">Company: {candidate.company || "N/A"}</p>
+      <a href={candidate.html_url} target="_blank" rel="noopener noreferrer" className="candidate-link">
         GitHub Profile
       </a>
-      <div>
-        <button onClick={saveCandidate}>+</button>
-        <button onClick={skipCandidate}>-</button>
+      <div className="candidate-buttons">
+        <button onClick={saveCandidate} className="save-button">+</button>
+        <button onClick={skipCandidate} className="skip-button">-</button>
       </div>
     </div>
   );

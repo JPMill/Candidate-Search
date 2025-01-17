@@ -1,0 +1,87 @@
+.candidate-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 20px auto;
+  }
+  
+  .candidate-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .candidate-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .candidate-name {
+    font-size: 1.25rem;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .candidate-info {
+    font-size: 1rem;
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .candidate-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block;
+  }
+  
+  .candidate-link:hover {
+    text-decoration: underline;
+  }
+  
+  .candidate-buttons {
+    margin-top: 15px;
+  }
+  
+  .save-button,
+  .skip-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .save-button:hover,
+  .skip-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .loading-message {
+    color: #007bff;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .error-message {
+    color: #ff4d4d;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .no-candidates-message {
+    color: #f39c12;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
