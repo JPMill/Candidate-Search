@@ -18,6 +18,9 @@ const CandidateSearch = () => {
       }
       const randomUser = userList[Math.floor(Math.random() * userList.length)];
       const detailedUser = await searchGithubUser(randomUser.login);
+
+      console.log(detailedUser);
+
       setCandidate(detailedUser);
       setError(null);
     } catch (err: any) {
