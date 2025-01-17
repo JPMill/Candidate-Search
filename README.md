@@ -17,7 +17,7 @@ This project allows users to search for potential candidates from GitHub based o
 To install, run 'npm install' in the terminal.
 
 ## Usage
-After installing, run 'npm run build' followed by 'npm run dev' to run locally or visit the deployed site [here](https://candidate-search-f8k8.onrender.com/). On the website you can view GitHub users and decide to skip the candidate or save the candidate in local storage.
+After installing, run 'npm run build' followed by 'npm run dev' to run locally or visit the deployed site [here](https://candidate-search-f8k8.onrender.com/). On the website you can view GitHub users and decide to skip the candidate or save the candidate in local storage by clicking '+' to add or '-' to skip.
 ![Candidate Search Screenshot](./src/assets/candidatehome.png)
 ![Candidate Save Screenshot](./src/assets/candidatesave.png)
 
