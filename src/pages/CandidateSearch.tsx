@@ -10,8 +10,15 @@ const CandidateSearch = () => {
   const fetchCandidate = async () => {
     try {
       setLoading(true);
-      const data = await searchGithub();
-      setCandidate(data);
+      const userList = await searchGithub();
+      if (!userList || userList.length === 0) {
+        setError("No candidates available.");
+        setCandidate(null);
+        return;
+      }
+      const randomUser = userList[Math.floor(Math.random() * userList.length)];
+      const detailedUser = await searchGithubUser(randomUser.login);
+      setCandidate(detailedUser);
       setError(null);
     } catch (err: any) {
       setError("Failed to fetch candidate data.");
@@ -46,10 +53,12 @@ const CandidateSearch = () => {
       <img src={candidate.avatar_url} alt={`${candidate.name}'s avatar`} width={100} />
       <h2>{candidate.name}</h2>
       <p>Username: {candidate.username}</p>
-      <p>Location: {candidate.location}</p>
+      <p>Location: {candidate.location || "N/A"}</p>
       <p>Email: {candidate.email || "N/A"}</p>
       <p>Company: {candidate.company || "N/A"}</p>
-      <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+      <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">
+        GitHub Profile
+      </a>
       <div>
         <button onClick={saveCandidate}>+</button>
         <button onClick={skipCandidate}>-</button>
