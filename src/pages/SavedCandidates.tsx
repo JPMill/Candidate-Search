@@ -12,7 +12,7 @@ const SavedCandidates: React.FC = () => {
   }, []);
 
   const removeCandidate = (username: string) => {
-    const updatedCandidates = candidates.filter(c => c.username !== username);
+    const updatedCandidates = candidates.filter(c => c.login !== username);
     setCandidates(updatedCandidates);
     localStorage.setItem("savedCandidates", JSON.stringify(updatedCandidates));
   };
@@ -24,15 +24,15 @@ const SavedCandidates: React.FC = () => {
       <h1>Potential Candidates</h1>
       <ul>
         {candidates.map(candidate => (
-          <li key={candidate.username}>
+          <li key={candidate.login}>
             <img src={candidate.avatar_url} alt={`${candidate.name}'s avatar`} width={50} />
-            <h2>{candidate.name}</h2>
-            <p>Username: {candidate.username}</p>
-            <p>Location: {candidate.location}</p>
+            <h2>{candidate.name || "No Name"}</h2>
+            <p>Username: {candidate.login}</p>
+            <p>Location: {candidate.location || "N/A"}</p>
             <p>Email: {candidate.email || "N/A"}</p>
             <p>Company: {candidate.company || "N/A"}</p>
             <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">GitHub Profile</a>
-            <button onClick={() => removeCandidate(candidate.username)}>-</button>
+            <button onClick={() => removeCandidate(candidate.login)}>-</button>
           </li>
         ))}
       </ul>

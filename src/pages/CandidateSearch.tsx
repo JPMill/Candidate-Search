@@ -55,7 +55,7 @@ const CandidateSearch = () => {
       <h1>Candidate Search</h1>
       <img src={candidate.avatar_url} alt={`${candidate.name}'s avatar`} width={100} />
       <h2>{candidate.name}</h2>
-      <p>Username: {candidate.username}</p>
+      <p>Username: {candidate.login}</p>
       <p>Location: {candidate.location || "N/A"}</p>
       <p>Email: {candidate.email || "N/A"}</p>
       <p>Company: {candidate.company || "N/A"}</p>
