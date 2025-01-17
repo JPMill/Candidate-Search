@@ -1,7 +1,7 @@
 import * as React from "react";  // Use 'import * as React' instead of default import
 import { useState, useEffect } from "react";
 import { Candidate } from "../interfaces/Candidate.interface";
-// import './SavedCandidates.css';
+import './SavedCandidates.css';
 
 
 const SavedCandidates: React.FC = () => {
@@ -47,7 +47,7 @@ const SavedCandidates: React.FC = () => {
               <td>{candidate.email || "N/A"}</td>
               <td>{candidate.company || "N/A"}</td>
               <td>
-                <button onClick={() => removeCandidate(candidate.login)}>-</button>
+                <button className="remove-button" onClick={() => removeCandidate(candidate.login)}>-</button>
               </td>
             </tr>
           ))}
